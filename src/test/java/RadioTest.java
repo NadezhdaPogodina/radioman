@@ -1,7 +1,7 @@
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import ru.netology.radioman.services.Radio;
-import ru.netology.radioman.services.RadioVolume;
+
 
 public class RadioTest {
 
@@ -37,23 +37,23 @@ public class RadioTest {
 
     @Test
     public void MaxVolume() {
-        RadioVolume volume = new RadioVolume();
+        Radio radio = new Radio();
 
-        volume.maxRadioVolume(10);
+        radio.maxRadioVolume(10);
 
         int expected = 10;
 
-        int actual = volume.getCurrentRadioVolume();
+        int actual = radio.getCurrentRadioVolume();
         Assertions.assertEquals(expected, actual);
     }
 
     @Test
     public void MinVolume() {
-        RadioVolume volume = new RadioVolume();
+        Radio radio = new Radio();
 
-        volume.minRadioVolume(1);
+        radio.minRadioVolume(1);
         int expected = 0;
-        int actual = volume.getCurrentRadioVolume();
+        int actual = radio.getCurrentRadioVolume();
         Assertions.assertEquals(expected, actual);
 
 
