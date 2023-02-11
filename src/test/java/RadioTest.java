@@ -26,6 +26,25 @@ public class RadioTest {
     }
 
     @Test
+    public void afterRadioStation() {
+        Radio radio = new Radio();
+        radio.Next(7);
+        int expected = 8;
+        int actual = radio.getCurrentRadioStation();
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void plusRadioStation() {
+        Radio radio = new Radio();
+        radio.Next(0);
+        int expected = 1;
+        int actual = radio.getCurrentRadioStation();
+        Assertions.assertEquals(expected, actual);
+    }
+
+
+    @Test
     public void lastRadioStation() {
         Radio radio = new Radio();
         radio.Prev(0);
@@ -39,6 +58,15 @@ public class RadioTest {
         Radio radio = new Radio();
         radio.Prev(5);
         int expected = 4;
+        int actual = radio.getCurrentRadioStation();
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void beforeRadioStation() {
+        Radio radio = new Radio();
+        radio.Prev(7);
+        int expected = 6;
         int actual = radio.getCurrentRadioStation();
         Assertions.assertEquals(expected, actual);
     }
@@ -89,6 +117,15 @@ public class RadioTest {
         Radio radio = new Radio();
         radio.minRadioVolume(0);
         int expected = 0;
+        int actual = radio.getCurrentRadioVolume();
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void beforeVolume() {
+        Radio radio = new Radio();
+        radio.minRadioVolume(10);
+        int expected = 9;
         int actual = radio.getCurrentRadioVolume();
         Assertions.assertEquals(expected, actual);
     }

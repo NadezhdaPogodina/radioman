@@ -15,9 +15,14 @@ public class Radio {
             currentRadioStation = 0;
         }
 
-        if ((newCurrentRadioStation < 9) & (newCurrentRadioStation > 0)) {
+        if (newCurrentRadioStation < 9) {
 
             currentRadioStation = newCurrentRadioStation + 1;
+
+            if (newCurrentRadioStation >= 0) {
+
+                currentRadioStation = newCurrentRadioStation + 1;
+            }
         }
 
     }
@@ -30,13 +35,17 @@ public class Radio {
             currentRadioStation = 9;
         }
 
-        if ((newCurrentRadioStation > 0) & (newCurrentRadioStation < 9)) {
-
+        if (newCurrentRadioStation > 0) {
 
             currentRadioStation = newCurrentRadioStation - 1;
-        }
 
+            if (newCurrentRadioStation <= 9) {
+
+                currentRadioStation = newCurrentRadioStation - 1;
+            }
+        }
     }
+
 
     public int currentRadioVolume;
 
@@ -53,11 +62,17 @@ public class Radio {
             currentRadioVolume = 10;
         }
 
-        if ((newMaxRadioVolume < 10) & (newMaxRadioVolume > 0)) {
+        if (newMaxRadioVolume < 10) {
 
             currentRadioVolume = newMaxRadioVolume + 1;
+
+            if (newMaxRadioVolume > 0) {
+
+                currentRadioVolume = newMaxRadioVolume + 1;
+            }
         }
     }
+
 
     public void minRadioVolume(int newMinRadioVolume) {
 
@@ -66,13 +81,17 @@ public class Radio {
             currentRadioVolume = 0;
         }
 
-        if ((newMinRadioVolume > 0) & (newMinRadioVolume < 10)) {
+        if (newMinRadioVolume > 0) {
+
             currentRadioVolume = newMinRadioVolume - 1;
+
+            if (newMinRadioVolume <= 10) {
+                currentRadioVolume = newMinRadioVolume - 1;
+            }
         }
     }
+
 }
-
-
 
 
 
