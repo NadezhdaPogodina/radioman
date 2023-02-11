@@ -6,7 +6,7 @@ import ru.netology.radioman.services.Radio;
 public class RadioTest {
 
     @Test
-    public void nextRadioStation() {
+    public void maxRadioStation() {
         Radio radio = new Radio();
 
         radio.Next(9);
@@ -17,10 +17,28 @@ public class RadioTest {
     }
 
     @Test
+    public void nextRadioStation() {
+        Radio radio = new Radio();
+        radio.Next(4);
+        int expected = 5;
+        int actual = radio.getCurrentRadioStation();
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void lastRadioStation() {
+        Radio radio = new Radio();
+        radio.Prev(0);
+        int expected = 9;
+        int actual = radio.getCurrentRadioStation();
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
     public void previousRadioStation() {
         Radio radio = new Radio();
-        radio.Prev(2);
-        int expected = 1;
+        radio.Prev(5);
+        int expected = 4;
         int actual = radio.getCurrentRadioStation();
         Assertions.assertEquals(expected, actual);
     }
@@ -36,7 +54,7 @@ public class RadioTest {
     }
 
     @Test
-    public void MaxVolume() {
+    public void maxVolume() {
         Radio radio = new Radio();
 
         radio.maxRadioVolume(10);
@@ -48,14 +66,30 @@ public class RadioTest {
     }
 
     @Test
-    public void MinVolume() {
+    public void altVolume() {
+        Radio radio = new Radio();
+        radio.maxRadioVolume(6);
+        int expected = 7;
+        int actual = radio.getCurrentRadioVolume();
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void backVolume() {
         Radio radio = new Radio();
 
         radio.minRadioVolume(1);
         int expected = 0;
         int actual = radio.getCurrentRadioVolume();
         Assertions.assertEquals(expected, actual);
+    }
 
-
+    @Test
+    public void minVolume() {
+        Radio radio = new Radio();
+        radio.minRadioVolume(0);
+        int expected = 0;
+        int actual = radio.getCurrentRadioVolume();
+        Assertions.assertEquals(expected, actual);
     }
 }

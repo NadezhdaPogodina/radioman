@@ -19,13 +19,17 @@ public class Radio {
 
             currentRadioStation = newCurrentRadioStation + 1;
         }
+
     }
+
 
     public void Prev(int newCurrentRadioStation) {
 
         if (newCurrentRadioStation == 0) {
+
             currentRadioStation = 9;
         }
+
         if ((newCurrentRadioStation > 0) & (newCurrentRadioStation < 9)) {
 
 
